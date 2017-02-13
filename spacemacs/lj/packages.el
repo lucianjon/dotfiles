@@ -70,7 +70,7 @@ in my .spacemacs file, I much prefer this."
     (paren-activate)
     (setq paren-match-face 'mode-line)))
 
-(defun pd/init-persistent-scratch ()
+(defun lj/init-persistent-scratch ()
   "My persistent-scratch customizations.."
   (use-package persistent-scratch
     :config
