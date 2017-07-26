@@ -29,6 +29,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     php
+     scala
      swift
      lj
      html
@@ -135,7 +137,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 15
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -320,34 +322,7 @@ you should place your code here."
 
   (setq frame-title-format (list user-login-name "@" system-name ":%f"))
   (setq powerline-default-separator 'arrow)
-
-  (setq theming-modifications
-      '((solarized
-         ;; Provide a sort of "on-off" modeline whereby the current buffer has a nice
-         ;; bright blue background, and all the others are in cream.
-         ;; TODO: Change to use variables here. However, got error:
-         ;; (Spacemacs) Error in dotspacemacs/user-config: Wrong type argument: stringp, pd-blue
-         (mode-line :foreground "#e9e2cb" :background "#2075c7" :inverse-video nil)
-         (powerline-active1 :foreground "#e9e2cb" :background "#2075c7" :inverse-video nil)
-         (powerline-active2 :foreground "#e9e2cb" :background "#2075c7" :inverse-video nil)
-         (mode-line-inactive :foreground "#2075c7" :background "#e9e2cb" :inverse-video nil)
-         (powerline-inactive1 :foreground "#2075c7" :background "#e9e2cb" :inverse-video nil)
-         (powerline-inactive2 :foreground "#2075c7" :background "#e9e2cb" :inverse-video nil)
-         ;; Make a really prominent helm selection line.
-         (helm-selection :foreground "white" :background "red" :inverse-video nil)
-         ;; See comment above about dotspacemacs-colorize-cursor-according-to-state.
-         (cursor :background "#b58900")
-         )))
-
-  (set-terminal-parameter nil 'background-mode 'light)
-  ;;(set-frame-parameter frame 'background-mode 'light)
-  (customize-set-variable 'frame-background-mode 'light)
-  (spacemacs/load-theme 'solarized)
-
-  ;; Turn this off to stop it interfering with mic-paren.
-  (set-face-attribute 'sp-show-pair-match-face nil :foreground 'unspecified :background 'unspecified)
-  (set-face-attribute 'sp-show-pair-mismatch-face nil :foreground 'unspecified :background 'unspecified)
-
+  (setq counsel-ag-base-command "ag --nocolor --nogroup --ignore-dir vendor %s")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
