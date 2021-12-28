@@ -19,7 +19,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
- (setq doom-font (font-spec :family "Hack" :size 14))
+ (setq doom-font (font-spec :family "Source Code Pro" :size 18))
 
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -72,15 +72,3 @@
   :defer t
   :config
   (set-electric! 'jsonnet-mode :chars '(?\n ?: ?{ ?})))
-
-;; workaround for https://github.com/hlissner/doom-emacs/issues/4977
-(setq xterm-set-window-title t)
-(defadvice! fix-xterm-set-window-title (&optional terminal)
-  :before-while #'xterm-set-window-title
-  (not (display-graphic-p terminal)))
-
-(use-package! lsp-tailwindcss)
-
-(use-package! one-themes
-  :init
-  (load-theme 'one-dark t))
